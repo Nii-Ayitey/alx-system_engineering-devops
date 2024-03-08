@@ -33,19 +33,19 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend clickviral-frontend
+frontend ayitey-tech-frontend
         bind *:80
         mode http
         http-request redirect scheme https code 301 unless { ssl_fc }
         http-request set-header X_Forwarded-Proto http
-        default_backend clickviral-backend
+        default_backend ayitey-tech-backend
 
-frontend clickviral-frontend-https
+frontend ayitey-tech-frontend-https
         bind *:443 ssl crt /etc/haproxy/certs/clickviral.tech.pem
         http-request set-header X-Forwarded-Proto https
-        default_backend clickviral-backend
+        default_backend ayitey-tech-backend
 
-backend clickviral-backend
+backend ayitey-tech-backend
         balance roundrobin
-        server 151666-web-01 54.160.126.32:80 check
-        server 151666-web-02 52.3.220.119:80 check
+        server 491455-web-01 54.160.126.32:80 check
+        server 491455-web-02 52.3.220.119:80 check
